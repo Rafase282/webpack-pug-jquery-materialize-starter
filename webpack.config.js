@@ -2,6 +2,7 @@
 
 const webpack = require('webpack')
 const path = require('path')
+const htmlWebpackPlugin = require('html-webpack-plugin')
 
 const PATHS = {
   app: path.resolve(__dirname, 'src/client'),
@@ -18,13 +19,21 @@ module.exports = {
     extensions: ['', '.js', '.pug', '.scss']
   },
   entry: {
-    main: PATHS.app,
-    index: PATHS.index
+    main: PATHS.app
   },
   output: {
     path: PATHS.build,
     filename: 'bundle.js',
     publicPath: '/'
+  },
+  devServer: {
+    contentBase: PATHS.build,
+    inline: true,
+    hot: true,
+    stats: 'errors-only',
+    historyApiFallback: true,
+    port: process.env.PORT,
+    host: process.env.HOST
   },
   module: {
     loaders: [
@@ -32,8 +41,6 @@ module.exports = {
         test: /\.pug/,
         include: PATHS.index,
         loaders: [
-          'file?name=[name].html',
-          'extract',
           'pug-html'
         ]
       },
@@ -60,5 +67,11 @@ module.exports = {
         loader: 'file?name=fonts/[name].[ext]'
       }
     ]
-  }
+  },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: PATHS.index
+    }),
+    new webpack.HotModuleReplacementPlugin()
+  ]
 }
