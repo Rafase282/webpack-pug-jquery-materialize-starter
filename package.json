@@ -1,0 +1,38 @@
+{
+  "name": "webpack-pug-jquery-materialize-starter",
+  "version": "0.0.1",
+  "description": "Starter for Simple Express projects",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "pug",
+    "jQuery",
+    "Material"
+  ],
+  "author": "Joseph Morse <tamed.lionheart@gmail.com> (https://github.com/jnmorse)",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "exports-loader": "^0.6.3",
+    "extract-loader": "0.0.2",
+    "file-loader": "^0.8.5",
+    "image-webpack-loader": "^1.8.0",
+    "jquery": "^2.2.4",
+    "materialize-css": "^0.97.6",
+    "pug-html-loader": "^1.0.5",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "node-sass": "^3.7.0",
+    "pug": "^2.0.0-alpha8"
+  }
+}
